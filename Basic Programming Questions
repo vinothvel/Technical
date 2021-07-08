@@ -1,4 +1,10 @@
 1) Find size of variable in generic form
   #define sizeof( var) ((&var + 1) - (&var))
   
-2)
+2) Inline Function vs Macro
+  Macro is expanded in the preprocessor time. It is just text substituion and also macros are not type checked where as inline function does.
+  Inline function replaces the function call with actual body of the function. Inline is just a request to a compiler.
+  Advantage of inline function is, it does not require function call and does not return anything from the function.
+  Disadvantage of inline function is, it increases file size as same function code is copied again and again in the program wherever it is called.
+ 
+3) 
