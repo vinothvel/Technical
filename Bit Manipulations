@@ -91,6 +91,12 @@ int CountHigh_Bits(int x)
    return x;
  }
  
+ 7) swap Bits at Odd and Even places
+ int swapBit(int x)
+ {
+  return  ((x & (0xAAAAAAAA)) >> 1) | ((x & 0x55555555) << 1)
+ }
+ 
  
  
    
