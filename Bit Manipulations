@@ -15,3 +15,31 @@ int IsPowerOf2(int x)
    return (x && !(x & (x - 1)));
 }
 
+2) Count the number of ones in the binary representation of the given number?
+
+int CountHigh_Bits(int x)
+{
+   int count = 0;
+   
+   /* Normal Implementation*/
+   while(x)
+   {
+     x = x/2;
+     count++;
+   }
+   
+   if(x == 1)
+    count ++;
+   
+   return count;
+   
+   /*Bit Manipulation*/
+   /* (x & (x-1)) will clear the rightmost high bit */
+   while(x)
+   {
+     x = (x & (x-1));
+     count++;
+   }
+   
+   return count;
+}
