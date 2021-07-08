@@ -43,3 +43,33 @@ int CountHigh_Bits(int x)
    
    return count;
 }
+
+3)  Check if the ith bit is set in the binary form of the given number.
+  
+  if(x & (1 << i))
+   return true;
+  else
+   return false;
+  
+4) Find the Rightmost Bit set in a given number.
+   
+   Two ways to solve:
+   1) x ^ (x & (x -1)) --> (As (x & (x -1)) will clear the rightmost bit) xor with x will return the right most bit.
+   2) x & (-x) --> As -x is 2s complement of x will flip all the bits to the rightmost bit.
+   
+   int RightMostBitPosition(int x)
+   {
+     int Pos;
+     x ^= (x & (x -1)); OR 
+     
+     while(x)
+     {
+      x >> 1;
+      Pos++;
+     }
+     
+     return Pos;
+   }
+   
+   
+   
