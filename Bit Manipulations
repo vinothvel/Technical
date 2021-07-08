@@ -1,0 +1,17 @@
+How to check if a given number is a power of 2 ?
+ 
+int IsPowerOf2(int x)
+{
+  /* Normal Implementation*/
+  if(x == 0)
+    return 0;
+    
+    while((x % 2) == 0)
+      x /= 2;
+      
+      return (x==1);
+      
+   /*Bit Manipulation. if x is a power of 2 then x & (x-1) will be 0.*/
+   return (x && !(x & (x - 1)));
+}
+
