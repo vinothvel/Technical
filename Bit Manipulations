@@ -70,6 +70,27 @@ int CountHigh_Bits(int x)
      
      return Pos;
    }
-   
-   
+ 
+5) Clear all bits from LSB to ith bit
+ int clear_lsb(int x, int i) 
+ {
+   /* (x - 1) will clear the msb bit and sets all the LSB bits*/
+   int mask = ~((1 << (i+1)) - 1);
+   x &= mask;
+  
+   return x;
+ }
+ 
+6) Clearing all bits from MSB to i-th bit
+ int clear_msb(int x, int i) 
+ {
+   /* (x - 1) will clear the msb bit and sets all the LSB bits*/
+   int mask = ((1 << (i)) - 1);
+   x &= mask;
+  
+   return x;
+ }
+ 
+ 
+ 
    
