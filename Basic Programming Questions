@@ -1,0 +1,4 @@
+1) Find size of variable in generic form
+  #define sizeof( var) ((&var + 1) - (&var))
+  
+2)
