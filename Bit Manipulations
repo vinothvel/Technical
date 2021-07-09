@@ -1,3 +1,15 @@
+Tricks with Bits :
+
+x & (x-1) will clear the lowest set bit of x
+x & ~(x-1) extracts the lowest set bit of x (all others are clear).
+x & (x + (1 << n)) = x, with the run of set bits (possibly length 0) starting at bit n cleared.
+x & ~(x + (1 << n)) = the run of set bits (possibly length 0) in x, starting at bit n.
+x | (x + 1) = x with the lowest cleared bit set.
+x | ~(x + 1) = extracts the lowest cleared bit of x (all others are set).
+x | (x - (1 << n)) = x, with the run of cleared bits (possibly length 0) starting at bit n set.
+x | ~(x - (1 << n)) = the lowest run of cleared bits (possibly length 0) in x, starting at bit n are the only clear bits.
+
+
 How to check if a given number is a power of 2 ?
  
 int IsPowerOf2(int x)
@@ -55,7 +67,7 @@ int CountHigh_Bits(int x)
    
    Two ways to solve:
    1) x ^ (x & (x -1)) --> (As (x & (x -1)) will clear the rightmost bit) xor with x will return the right most bit.
-   2) x & (-x) --> As -x is 2s complement of x will flip all the bits to the rightmost bit.
+   2) x & (-x) --> As -x is 2s complement of x will flip all the bits to the MSB bit.
    
    int RightMostBitPosition(int x)
    {
@@ -96,7 +108,6 @@ int CountHigh_Bits(int x)
  {
   return  ((x & (0xAAAAAAAA)) >> 1) | ((x & 0x55555555) << 1)
  }
- 
  
  
    
