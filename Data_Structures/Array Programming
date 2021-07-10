@@ -108,6 +108,9 @@ int find_subarray_inedxes(int a[], int n, int sum)
   
   cur_sum += a[i];
  }
- 
- 
 }
+
+4) largest sum of contiguos array?
+5) search key in all segment preset or not?
+6) count pairs of sum?
+7) rotate matrix
