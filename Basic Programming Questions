@@ -19,7 +19,9 @@ what is uboot
 what is device tree and can we convert dtb into dts.
 what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
-I2C, SPI max speed
+I2C, SPI max speed?
+Study about SPI interrupt level and edge triggered??
+what is the use of pull up resistor in I2C and without  it can we use.
 endian swap macro?
 const volatile int *p can be used?
 sizeof of variable in generic form.
