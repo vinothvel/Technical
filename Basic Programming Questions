@@ -25,5 +25,5 @@ what is the use of pull up resistor in I2C and without  it can we use.
 endian swap macro?
 const volatile int *p can be used?
 sizeof of variable in generic form.
-
+I2C Arbitration.
 
