@@ -7,4 +7,21 @@
   Advantage of inline function is, it does not require function call and does not return anything from the function.
   Disadvantage of inline function is, it increases file size as same function code is copied again and again in the program wherever it is called.
  
-3) 
+3) SPI 
+
+
+How do you debug if stack memory corruption happens. depth in debugging other than debugger and print. Mostly on how stack is corrupted.
+Start address of the stack pointer and how much allocated stack size for the given function.
+Before main what things are done in microcontroller?
+stack pointer assignment in microntroller booting?
+boot process in depth of an microcontroller and linux.`
+what is uboot
+what is device tree and can we convert dtb into dts.
+what about QSPI?
+How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
+I2C, SPI max speed
+endian swap macro?
+const volatile int *p can be used?
+sizeof of variable in generic form.
+
+
