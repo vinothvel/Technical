@@ -10,20 +10,25 @@
 3) SPI 
 
 
+const volatile int *p can be used?
+endian swap macro?
+sizeof of variable in generic form.
+
+what is uboot
+what is device tree and can we convert dtb into dts.
+
 How do you debug if stack memory corruption happens. depth in debugging other than debugger and print. Mostly on how stack is corrupted.
 Start address of the stack pointer and how much allocated stack size for the given function.
 Before main what things are done in microcontroller?
 stack pointer assignment in microntroller booting?
 boot process in depth of an microcontroller and linux.`
-what is uboot
-what is device tree and can we convert dtb into dts.
+
+
 what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
 I2C, SPI max speed?
 Study about SPI interrupt level and edge triggered??
 what is the use of pull up resistor in I2C and without  it can we use.
-endian swap macro?
-const volatile int *p can be used?
-sizeof of variable in generic form.
 I2C Arbitration.
+Clock Stretching.
 
