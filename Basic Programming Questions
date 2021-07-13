@@ -28,7 +28,20 @@ what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
 I2C, SPI max speed?
 Study about SPI interrupt level and edge triggered??
-what is the use of pull up resistor in I2C and without  it can we use.
-I2C Arbitration.
+
+what is the use of pull up resistor in I2C and without  it can we use?
+I2C operates on open drain configuration, where the line / bus can be pulled down or released
+(when released pull up resistor ensures the bus/line voltage is upto the vcc).
+If I2C is push pull type of output, master can drive the bus to high when slave tries to drive 
+the bus to low which leads to communication issue casuing short (vcc to ground).
+
+Sinking current means when the current is flowing from load to port. Sourcing current means when the current flows from port to load.
+So I2C open drain port is sinking current mode.
+
+I2C Arbitration?
+Since I2C is an multi master device, bus contention can happen. This bus contention is avoided using this open drain configuration.
+i.e Master continously sense the bus and compares the bus data with master output data. when it mismatch master will halt the transmission.
+In this configuration which slave/master pulls line low/ transmits low first, will get the control of the bus.
+
 Clock Stretching.
 
