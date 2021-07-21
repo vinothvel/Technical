@@ -28,6 +28,8 @@ what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
 I2C, SPI max speed?
 Study about SPI interrupt level and edge triggered??
+SPI and I2c in Interrupt?
+
 
 what is the use of pull up resistor in I2C and without  it can we use?
 I2C operates on open drain configuration, where the line / bus can be pulled down or released
@@ -41,7 +43,12 @@ So I2C open drain port is sinking current mode.
 I2C Arbitration?
 Since I2C is an multi master device, bus contention can happen. This bus contention is avoided using this open drain configuration.
 i.e Master continously sense the bus and compares the bus data with master output data. when it mismatch master will halt the transmission.
-In this configuration which slave/master pulls line low/ transmits low first, will get the control of the bus.
+In this configuration which master pulls line/transmit low first, will get the control of the bus.
 
-Clock Stretching.
+Clock Stretching?
+In I2C master will generate the clock signal. But sometimes slave may need time to process the data received from master. 
+So, to make further delay i2c may pull the clock line to low on the 9th clock cycle (in ACK cycle). There is no timeout mentioned for how much
+time slave can hold the clock line low. In the mean time master shall sense the clock line and wait for it to become high again.
+
+Clock stretching can happen when slave needs to process the data/store the data or to prepare response for the received data.
 
