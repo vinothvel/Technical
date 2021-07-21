@@ -23,12 +23,17 @@ Before main what things are done in microcontroller?
 stack pointer assignment in microntroller booting?
 boot process in depth of an microcontroller and linux.`
 
+When to choose external osc? and why?
 
 what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
 I2C, SPI max speed?
 Study about SPI interrupt level and edge triggered??
 SPI and I2c in Interrupt?
+when to choose I2C and SPI? Advantages and disadvantages over one another?
+Why CS signal is active low?
+Is spi also uses pull up resistor, if not why?
+what is TTL, list others also?
 
 
 what is the use of pull up resistor in I2C and without  it can we use?
