@@ -34,6 +34,7 @@ when to choose I2C and SPI? Advantages and disadvantages over one another?
 Why CS signal is active low?
 Is spi also uses pull up resistor, if not why?
 what is TTL, list others also?
+How many slaves can be connected to SPI and I2C?
 
 
 what is the use of pull up resistor in I2C and without  it can we use?
