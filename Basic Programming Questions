@@ -42,25 +42,46 @@ Is spi also uses pull up resistor, if not why?
 what is TTL, list others also?
 How many slaves can be connected to SPI and I2C?
 
-
-what is the use of pull up resistor in I2C and without  it can we use?
-I2C operates on open drain configuration, where the line / bus can be pulled down or released
+-----
+I2C - Inter Integrated Circuit / Two Wire Interface(TWI)
+-----
+1) What is the use of pull up resistor in I2C and without  it can we use?
+    I2C operates on open drain configuration, where the line / bus can be pulled down or released
 (when released pull up resistor ensures the bus/line voltage is upto the vcc).
 If I2C is push pull type of output, master can drive the bus to high when slave tries to drive 
 the bus to low which leads to communication issue casuing short (vcc to ground).
 
-Sinking current means when the current is flowing from load to port. Sourcing current means when the current flows from port to load.
+    Sinking current means when the current is flowing from load to port. Sourcing current means when the current flows from port to load.
 So I2C open drain port is sinking current mode.
 
-I2C Arbitration?
-Since I2C is an multi master device, bus contention can happen. This bus contention is avoided using this open drain configuration.
+2) I2C Arbitration?
+    Since I2C is an multi master device, bus contention can happen. This bus contention is avoided using this open drain configuration.
 i.e Master continously sense the bus and compares the bus data with master output data. when it mismatch master will halt the transmission.
 In this configuration which master pulls line/transmit low first, will get the control of the bus.
 
-Clock Stretching?
-In I2C master will generate the clock signal. But sometimes slave may need time to process the data received from master. 
+3) Clock Stretching or Clock Synchronization?
+    In I2C master will generate the clock signal. But sometimes slave may need time to process the data received from master. 
 So, to make further delay i2c may pull the clock line to low on the 9th clock cycle (in ACK cycle). There is no timeout mentioned for how much
 time slave can hold the clock line low. In the mean time master shall sense the clock line and wait for it to become high again.
 
-Clock stretching can happen when slave needs to process the data/store the data or to prepare response for the received data.
+    Clock stretching can happen when slave needs to process the data/store the data or to prepare response for the received data.
+
+4) Advantage and Disadvantage of I2C?
+    Advantage:
+    -> Two wire interface.
+    -> Independent addressable slave devices.
+    -> Capability to handle multiple master by arbitration.
+    -> ACK/NACK for transmission error handling.
+    
+    Disadvantage:
+    -> Due to open drain topology uses more current.
+    -> suitable only for short distance
+    -> number of slaves are limited by the capcitance of I2C bus
+
+5) Max Speed and Max number of slaves?
+    I2C supports 3 speeds. 100KHz, 400KHz and 1MHz and 3.4MHz.
+    For each speed standard capcitances are defined. This capacitance will change the rising and falling time of the bus. 
+    Hence to meet the protocol rise and fall time standard, capcitance are defined for each speed.
+    For 7bit addressing, I2C supports 128 slaves therotically. But it is limited to less numbers by capcitance on the bus.
+    
 
