@@ -77,11 +77,30 @@ time slave can hold the clock line low. In the mean time master shall sense the 
     -> Due to open drain topology uses more current.
     -> suitable only for short distance
     -> number of slaves are limited by the capcitance of I2C bus
+    -> Half Duplex
 
 5) Max Speed and Max number of slaves?
     I2C supports 3 speeds. 100KHz, 400KHz and 1MHz and 3.4MHz.
     For each speed standard capcitances are defined. This capacitance will change the rising and falling time of the bus. 
     Hence to meet the protocol rise and fall time standard, capcitance are defined for each speed.
     For 7bit addressing, I2C supports 128 slaves therotically. But it is limited to less numbers by capcitance on the bus.
-    
 
+------------    
+SPI - Serial Peripheral Interface
+------------
+
+1) Max Speed and Max number of slaves?
+    SPI protocol does not define any top of communication speed. It can be implemented for 10 / 60Mbps for shorter range.
+
+1) Advantage and Disadvantage of I2C?
+    Advantage:
+    -> Full Duplex
+    -> No Start / Stop Bit, simpler protocol
+    -> Speed is twice as fast as I2C
+    -> ACK/NACK for transmission error handling.
+    
+    Disadvantage:
+    -> Single Master
+    -> No ACK for error handling
+    -> Uses four wire, hence wiring becomes complex as slave count is increases.
+    -> Half Duplex
