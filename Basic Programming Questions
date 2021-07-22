@@ -33,14 +33,12 @@ to operate at higher speed more than OSC frequency.
 
 what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
-I2C, SPI max speed?
 Study about SPI interrupt level and edge triggered??
 SPI and I2c in Interrupt?
 when to choose I2C and SPI? Advantages and disadvantages over one another?
 Why CS signal is active low?
-Is spi also uses pull up resistor, if not why?
 what is TTL, list others also?
-How many slaves can be connected to SPI and I2C?
+Why i2c suits only for short distance and spi for long? 
 
 -----
 I2C - Inter Integrated Circuit / Two Wire Interface(TWI)
@@ -88,9 +86,13 @@ time slave can hold the clock line low. In the mean time master shall sense the 
 ------------    
 SPI - Serial Peripheral Interface
 ------------
-
+1) SPI configuration?
+    SPI uses push pull configuration, hence there is no need for pull up resistors in SPI.
+    
 1) Max Speed and Max number of slaves?
     SPI protocol does not define any top of communication speed. It can be implemented for 10 / 60Mbps for shorter range.
+    If slaves are connected directly, then max number of slaves are limited to the CS pins available on the master chip.
+    If it is connected by daisy chain we can go for n number of slaves but with increased time delay in transmission.
 
 1) Advantage and Disadvantage of I2C?
     Advantage:
