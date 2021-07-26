@@ -9,7 +9,13 @@
  
 3) SPI 
 
-
+unnamed structure?
+what is the use of function pointers? array of function pointers?
+What is the difference between memory mapped and io mapped?
+what is pci BAR?
+PCI enumuration?
+how to allocate memory for double pointer?
+designe logic for producer 1GHz and consumer 650MHz no data should be lost and no flow conttroles should be used.
 const volatile int *p can be used?
 endian swap macro?
 sizeof of variable in generic form.
