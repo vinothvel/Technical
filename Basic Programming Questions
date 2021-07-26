@@ -23,13 +23,19 @@ Before main what things are done in microcontroller?
 stack pointer assignment in microntroller booting?
 boot process in depth of an microcontroller and linux.`
 
-When to choose external osc? and why?
-Very often microcontrollers internal oscilators are designed with resistor - capcitor circuit. Resistance and capacitance is prone to 
+-------------------------------
+MICROCONTROLLER questions
+-------------------------------
+
+1) When to choose external osc? and why?
+    Very often microcontrollers internal oscilators are designed with resistor - capcitor circuit. Resistance and capacitance is prone to 
 temperature, hence we may face drift in frequency when ambient changes. To avoid these kind of problems we may go for external OSC.
 Crystal oscillators are more accurate and often preferred as external OSC.
 
-PLLs are used in microcontroller for frequency multiplication. PLL takes input from one of the OSC and produces the multiplied frequency
+    PLLs are used in microcontroller for frequency multiplication. PLL takes input from one of the OSC and produces the multiplied frequency
 to operate at higher speed more than OSC frequency.
+
+2) Edge Trigger Vs Level Trigger ?
 
 what about QSPI?
 How to determine SPI is received the trasnmitted data without ACKNOWLEDGEMNT like in I2C.
