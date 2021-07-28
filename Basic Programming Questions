@@ -16,6 +16,9 @@ what is pci BAR?
 PCI enumuration?
 how to allocate memory for double pointer?
 designe logic for producer 1GHz and consumer 650MHz no data should be lost and no flow conttroles should be used.
+difference between size of and strlen?
+What is RISC and CISC.
+What is POWER PC Architecture?
 const volatile int *p can be used?
 endian swap macro?
 sizeof of variable in generic form.
