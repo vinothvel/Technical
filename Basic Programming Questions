@@ -10,7 +10,33 @@
 3) SPI 
 
 unnamed structure?
+Anonymous or unnames structures are used in nested union or structures. Since there is no name defined directly it can be accessed.
+
+Usage : Memory representation.
+typedef struct {
+    union{
+        struct {uint8_t a, b, g, r;};
+        uint32_t val;
+    };
+}Color;
+
 what is the use of function pointers? array of function pointers?
+Funtion Pointer :
+----------------------
+int fun(char a) {}
+
+int (*fun_ptr)(char) = &fun; // Initialization
+*fun_ptr(10); // Function calling
+OR
+int (*fun_ptr)(char) = fun; // Initialization
+fun_ptr(10); // Function calling
+
+Usage:
+1) Function pointers can be useful when you want to create callback mechanism, and need to pass address of a function to another function.
+2) To avoid code redundancy we use function pointers. With same input performing different functionalities.
+3) Like normal pointers we can use function pointer as argument. This 
+
+
 What is the difference between memory mapped and io mapped?
 what is pci BAR?
 PCI enumuration?
