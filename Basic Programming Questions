@@ -1,5 +1,5 @@
 1) Find size of variable in generic form
-  #define sizeof( var) ((&var + 1) - (&var))
+  #define sizeof( var) ((char *)(&var + 1) - (char *)(&var))
   
 2) Inline Function vs Macro
   Macro is expanded in the preprocessor time. It is just text substituion and also macros are not type checked where as inline function does.
@@ -7,9 +7,7 @@
   Advantage of inline function is, it does not require function call and does not return anything from the function.
   Disadvantage of inline function is, it increases file size as same function code is copied again and again in the program wherever it is called.
  
-3) SPI 
-
-unnamed structure?
+3) unnamed structure?
 Anonymous or unnames structures are used in nested union or structures. Since there is no name defined directly it can be accessed.
 
 Usage : Memory representation.
@@ -20,7 +18,7 @@ typedef struct {
     };
 }Color;
 
-what is the use of function pointers? array of function pointers?
+4) What is the use of function pointers? array of function pointers?
 Funtion Pointer :
 ----------------------
 int fun(char a) {}
@@ -36,19 +34,82 @@ Usage:
 2) To avoid code redundancy we use function pointers. With same input performing different functionalities.
 3) Like normal pointers we can use function pointer as argument. This 
 
+5) Difference between size of and strlen?
+   Sizeof will give the sizeof of datatype and it is done at compilation time and Sizeof of will not consider the value inside the variable.
+   Where as strlen is used for strings will give the value or null terminated string length of an variable.
+              Eg : char arra[20] = "vinoth" - sizeof of will return 20. But strlen will return 7.
 
-What is the difference between memory mapped and io mapped?
+6) What is the difference between memory mapped and io mapped?
+   Memory Mapped IO :
+   1) Memory address space is assigned from main memory to the IO for the requested Size. Changes in the memory will directly affect the IO states.
+   2) Normal read and write CPU INSTRUCTION cycles are used. 
+   IO Mapped IO :
+   1) IO will be mapped to the IO addresses. This state can be read or write using the registers / CPU address.
+   2) IO read / IO Write instructions will be used.
+   
+7) How to allocate memory for double pointer?
+   Double pointers ppoints to memory location of an another pointer.
+          Eg : char **p = malloc((char*) * 100); // will holds memory for 100 pointers.
+              char *p[0] =  malloc(); // can be done.
+
+8) What is RISC and CISC?
+   
+   RISC (Reduced Instruction Set Computer)
+    Main Idea behind the RISC is to reduce hardware complexity by using simpler instructions. Reduces the CPU cycle at the cost of number of instructions.
+    Since there is no need for complex instruction decoding logic, more number of transistors can be used thus increases the number of registers.
+    No of registers reduces the memory access time. Executes one instrution per clock cycle.
+   
+   CISC (Complex Instruction Set Computer)
+    When working in Assembly language for programming there was need of instruction to perform multiple work. Hence CISC is introduced.
+    Main Idea behing the CISC is one instrcution will do all loading, evaluating and storing operations. Reduces the number of instruction at the cost of
+    CPU cycles. Takes more than one cycle to execute instructions.
+    
+9) What are processor architecture available?
+    1) Von-Neumann
+    2) Harvard
+    3) CISC
+    4) RISC
+    5) DSP - MAC (Multiply and Accumulate) and Shifter (Arithmetic and Logical shift) units are added to the DSP cores since Signal Processing Algorithms
+    heavily depend on such operations. Circular Buffers, Bit Reversal Addressing, Hardware Loops, and DAG (Digital Address Generators) are some other common 
+    features of a DSP Architecture. Since Signal Processing Applications are data intensive, the data I/O bandwidth of these processors is designed to be high.
+    
+    Microcontroller Architectures :
+    1) ARM
+    2) AVR
+    3) PIC
+    4) 8051
+    5) Power PC
+    Micro Processor Architectures :
+    1) X86
+    2) ARM
+    3) Power PC
+    
+    ARM : Advanced RISC machine
+    Special family of instruction set architecture based on RISC architecture.
+    
+    AVR : 
+    AVR is modified Harvard architecture 8-bit RISC single-chip microcontrollers.
+    
+    PIC :
+    PIC Microcontroller architecture is based on Harvard architecture and supports RISC architecture
+    
+    Power PC :
+    is a reduced instruction set computer (RISC) instruction set architecture
+    
+10) const volatile int *p can be used?
+    Yes. Volatile indicates the program to fetch data always from memory nor from registers. Const indicates we can not change its value. 
+    So incase of Hardware register which is supposed to be filled by other module can be given as const volatile in our program.
+
+11) Macro for endian swap?
+    #define Swap_endian(data)   \
+    ((((data) >> 24) 0xFF) | (((data) >> 8) & 0xFF00) | \
+    (((data) << 24) 0xFF000000) | (((data) << 8) & 0xFF0000))
+    
+    
+
 what is pci BAR?
 PCI enumuration?
-how to allocate memory for double pointer?
-designe logic for producer 1GHz and consumer 650MHz no data should be lost and no flow conttroles should be used.
-difference between size of and strlen?
-What is RISC and CISC.
-What is POWER PC Architecture?
-const volatile int *p can be used?
-endian swap macro?
-sizeof of variable in generic form.
-
+Design logic for producer 1GHz and consumer 650MHz no data should be lost and no flow conttroles should be used.
 what is uboot
 what is device tree and can we convert dtb into dts.
 
@@ -137,7 +198,7 @@ SPI - Serial Peripheral Interface
     If slaves are connected directly, then max number of slaves are limited to the CS pins available on the master chip.
     If it is connected by daisy chain we can go for n number of slaves but with increased time delay in transmission.
 
-4) Advantage and Disadvantage of I2C?
+4) Advantage and Disadvantage of SPI?
     Advantage:
     -> Full Duplex
     -> No Start / Stop Bit, simpler protocol
