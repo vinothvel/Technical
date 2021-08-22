@@ -114,7 +114,12 @@ Usage:
     Packing explicitley intiamates the compiler to avoid / do packing for the desired value. #pragma pack.
     Note : Normally structure would padd the values to the size of an variable with max size of the datatype available in that structure.
     
-13) 
+13) Typedef vs Macro?
+     Typedef is limited to giving alias name for the data type only. Interpretation is performed in compilation time.
+     Typedef follows the scope rule.
+     Macros can give alias name for literals, constants and type also. Interpretation is done in preprocessing time.
+     Macros does not have any scope rule.
+     
     
 
 what is pci BAR?
