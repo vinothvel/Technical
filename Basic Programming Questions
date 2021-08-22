@@ -3,6 +3,9 @@
   
 2) Inline Function vs Macro
   Macro is expanded in the preprocessor time. It is just text substituion and also macros are not type checked where as inline function does.
+  eg : #define MAX(a,b) ((a)>(b) ? (a) : (b))
+    int i = 5, j = MAX(i++, 0); will be int i = 5, j = ((i++)>(0) ? (i++) : (0));.
+  The macro arguments are not evaluated before macro expansion. Eg: Max(2+3, 5+2);  
   Inline function replaces the function call with actual body of the function. Inline is just a request to a compiler.
   Advantage of inline function is, it does not require function call and does not return anything from the function.
   Disadvantage of inline function is, it increases file size as same function code is copied again and again in the program wherever it is called.
