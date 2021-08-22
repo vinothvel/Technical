@@ -105,6 +105,16 @@ Usage:
     ((((data) >> 24) 0xFF) | (((data) >> 8) & 0xFF00) | \
     (((data) << 24) 0xFF000000) | (((data) << 8) & 0xFF0000))
     
+12) Structure Padding and Packing ?
+    By default all processor architecture mandates the data should be aligned. Because unalligned memory access is slower(ie wastage of read cycles).
+    This alignment is done at the cost of memory. Eg: In 32Bit CPU, in one CPU cycle 4bytes of memory can be read. When it is not aligned in multiples of 4bytes
+    an integer varibale will be stored in the 2block os 4byte aligned memory hence it woould require 2 read cycle. This leads to slower operation.
+    
+    Hence all structures are aligned to its address boundaries. This is called structure padding. 
+    Packing explicitley intiamates the compiler to avoid / do packing for the desired value. #pragma pack.
+    Note : Normally structure would padd the values to the size of an variable with max size of the datatype available in that structure.
+    
+13) 
     
 
 what is pci BAR?
