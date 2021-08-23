@@ -21,9 +21,11 @@ Level E - Entertainment System
 
 DO-178B places different demands on structural coverage based on the software level. 
 
-Level A further requires Modified Condition/Decision Coverage (MC/DC), which entails additional tests for subexpressions of Boolean expressions. and Source code to Object code verification
+Level A further requires Modified Condition/Decision Coverage (MC/DC), which entails additional tests for subexpressions of Boolean expressions. 
+And source code to object code verification
 
-For Level B, both statement and decision coverage need to be shown. (Decision coverage implies, among other things, that Boolean expressions need to be exercised with tests for both True and False outcomes.) 
+For Level B, both statement and decision coverage need to be shown. 
+(Decision coverage implies, among other things, that Boolean expressions need to be exercised with tests for both True and False outcomes.) 
 
 For Level C, only statement coverage needs to be shown.
 
