@@ -1,0 +1,157 @@
+What is DO-178B?
+DO178B, Sonftware considerations in Airborne Systems and Equipment certification is a software certification standard for airborne systems.
+
+This document provides guidelines for the production of software to performs its intededed function with level of confidence in safty that complies airwothiness requirements.
+
+It was jointly developed by RTCA(Radion Technical Commision for Aeronautics) and European Organisation for Civil Aviation Equipement(ED-12B) and releases 1992.
+
+The guidelines are provided in the form of,
+1) Objectives keyed to various software life cycle processes
+2) activities and Design considerations to meet those objectives
+3) The required artifacts (life cycle data) that serve as evidence that the objectives have been met.
+
+
+In Airborne system software levels are catagorized by their failure effect in system.
+Level A - Flight control or flight guidance system failure
+Level B - Fuel Management
+Level C - ATC / Radio failure
+Level D - Flight Data Recorder
+Level E - Entertainment System
+
+
+DO-178B places different demands on structural coverage based on the software level. 
+
+Level A further requires Modified Condition/Decision Coverage (MC/DC), which entails additional tests for subexpressions of Boolean expressions. and Source code to Object code verification
+
+For Level B, both statement and decision coverage need to be shown. (Decision coverage implies, among other things, that Boolean expressions need to be exercised with tests for both True and False outcomes.) 
+
+For Level C, only statement coverage needs to be shown.
+
+
+Software Life Cycle Processes are catagroized as the following ,
+1) Software Planning
+2) Software Development
+	2.1 SW requirements
+	2.2 SW Design
+	2.3 Coding
+	2.4 Integration
+3) Integral PRoceess
+	3.1 SW Verfication
+	3.2 SW Configuration Management
+	3.3 SW Quality Assurance
+	3.4 Certification Liasion
+
+Software Planning
+----------------------
+Objectives :
+1. Defining the process activities, plan and standards
+2. Software Life Cycle, IDE, Methods are defined
+3. Transition Criteria between the process
+Output :
+1. Plan for Software Aspects of certfication (PSAC)
+2. SDP
+3. SVP
+4. SW Cofiguration Management Plan
+5. SQAP
+6. SRS
+7. SDS
+8. SCD
+
+Software Requirements
+--------------------------
+Objectives :
+High-level requirements in relation to function, performance, interface and safety.
+1) SRD
+
+SW Design
+Low-level requirements used to implement the source code.
+2) SDD
+
+SW Verification : 
+1) SW Verification cases and Procedures - (Functionality and code coverage)
+2) SW Verification Result
+
+SW Configuration Management
+1) SW Configuration Index - (will have Latest what are the CIs changed)
+2) SW Life Cycle Environment Configuration Index - (History of changes)
+
+SW QA
+1) SQA Records - Review Reports, Bugs
+2) SW Confirmity Record - we have not done. Whatever rewuirement meeting or not.
+3) SW Accomplishment Summary -
+
+Structureal Coverage?
+it is white box testing. Where as functional testing is black box testing. Coverage is how much code is covereed in testing.
+If code is not covered, then simulate more conditions to meet the coverage. If dead code (#if 0) -- > remove or comment the code.
+
+Data Coupling ?
+The dependency of an SW component on data that is excluively not controlled by that SW component.
+e.g global variables.
+
+Control Coupling ?
+The manner or degree by which one sw component influences the execution of another SW component.
+eg. passing local variable value of an function to another function where it is used to change the flow of execution.
+
+Waterfall Model?
+
+Requirement Analysis -> System Desing -> Implementation -> Testing -> Deployment -> Maintenance.
+
+1) each phase must be completed before the next phase can begin and there is no overlapping in the phases
+2) The waterfall Model illustrates the software development process in a linear sequential flow. This means that any phase in the development process begins only if the previous phase is complete. In this waterfall model, the phases do not overlap.
+3) Prefered when qualify is important compared to cost and time  of the project.
+4) Should use this model only when all requirements are known, Product is known and stable. Because it is difficult to to change in between.
+Disadv:
+5) Not good for complex projects.
+6) Not suitable incase of requirement changes.
+7) Testing is done at last which does  not allow any technoogical limitations in earlier stage.
+
+V Model:
+
+Requirment Analysis -> System Design -> Architectural Design -> Module Design - > Code ->
+Accecptance Testing <- SYstem Testing <- Integration Testing <- Unit Testing <-
+
+1) Also called as verfication and validation model.
+2) In this model Each phase has correspondent testing phase. 
+3) Similar to waterfall and importance given for testing phase hence quality of product can be better.
+
+Agile Model:
+
+Planing -> Requirment Analysis -> Design -> Coding -> Testing __> Iterations continues......
+
+1) Agile Model is divided into multiple iterative and incremental process.
+2) Each incrementel stage will have working build released to customer.
+3) Involvement of customer is the backbone in this model.
+4) This is adaptive model where there is no detailed input is not available and when requirement changes dynamically.
+Disadv
+1) There is very high individual dependencies sine less documentation.
+
+LDRA :
+Static Anaylsis : 
+Code Compliance Reports.
+Qality Analysis Report (Clarity / Cyclometric Complexity) - Gives an overview of the complexity of the the project. (Comments to code ratio).
+Dynamic Analysis :
+Code Coverage (On Host and On Target)
+Data Coupling (Global Variables usage) and Control Copuling (will give flow chart -> where it is getting called).
+
+Automated Testing or manual Testing?
+Both we are doing.
+TB Extreme will generate auto test cases based on its own analysis.
+To Increase the coverage will manually simulate test cases.
+
+
+Model Based Software Developmenet?
+
+
+V Model? Water Fall Model with feedback?
+we are following Water Model with feedback or Iterative water fall Model.
+
+Are we doing Fucntional Testing or Non Functional Testing?
+For coverage - Non Functional Testing
+ATP/FTP or SVCP CSCI - Functional Testing
+
+
+https://www.open-do.org/about/software-certification-101/index.html
+https://www.bmc.com/blogs/agile-vs-waterfall/
+
+https://www.guru99.com/qa-interview-questions-answers.html
+https://www.interviewbit.com/software-testing-interview-questions/
