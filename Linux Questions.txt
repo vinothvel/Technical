@@ -44,7 +44,7 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
   For each run level there is a directory in /etc/rc.d/rc0.d/.. In these directory there will be programs starts with S for running at startup and K for running at shutdown. Each program has number in which sequence it should be started and killed.
  
 5. What is kernel module?
-   Kernel module is l
+   Kernel module is an object which can loaded to the kernel without rebooting or changing the kernel. It is more like extending the kernel functionality dynamically for the new hardware or module.
 
 6. What happens when we do insmod?
    -> Insmod function will call init_module function with file len and parameters to initmate the user is trying to load kernel modules.
@@ -56,4 +56,14 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
       * Then the module reference is added the module list(LinkedList)
    -> Then module init function of the driver is called.   
       
-   
+7. What happens when we do rmmod?
+   -> rmmod function will call the delete_module function which hints the kernel module about the rmmod request and transfer the control to kernel.
+   -> Kernel then calls sys_delete_module function which does the following work,
+      * check the user has permission to unload the module.
+      * check the module is anybody else is using 
+      * check the module is module is still alive
+   -> It execute module_exit function
+   -> free_module function will be called.
+      * Removes any sys_fs reference
+      * Removes the object reference and platform specific cleanup
+      * Free up the memory.
