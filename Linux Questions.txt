@@ -71,3 +71,9 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
 8. Difference between sysfs and procfs?
    -> /Proc was originally used to export about the process information and some of the key attributes (system information eg cpuinfo, meminfo) for utilities such as ps, top. free etc.. Over the time due to the easy nature of access for both kernel and user space it grown more like dumping ground for lot of information. Hence it was decided to go for structured manner for this exporting.
    -> /sys was structured one and when ever new driver is registerd it will make entry is sysfs. So using this sysfs we can communicate with device also. In sysfs it is more like virtual file which directly reflected to the device driver.
+   
+9. Spin Lock?
+   -> Spinlock uses busy wait mechanism to keep the thread alive without context switching, Hence spin lock mostly to be used where the requirement and usage for the resouce will be very minimal. Spin lock can be acquire by user and kernel process as well. User process spin lock can be pre empted where as kernel spinlock can not. So when we keep the spinlock in user process for longer time there may be a chance it may get pre empted by the OS scheduler. 
+   In kernel process when spin lock is used pre emption is disabled hence no other process can pre empt this process. This is suited only for multi core CPU. In Single core CPU spin lock only does the busy wait, pre emption will not be disabled.
+   
+10. Mutex?   
