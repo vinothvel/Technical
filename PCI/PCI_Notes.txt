@@ -1,19 +1,17 @@
 PCI Basics : Peripheral Componenet Interconnect
-1) The registers in the configuration space shall be used to see the memory requirement and IO resource requirement for a device.
-2) PCI and PCI-X speed is limited and along with the limited count of device per bus was the reason to move away from parallel to serial bus model.
-3) As PCI is progressing towards higher frequency for higher speeds, number of devices were reduced and distance between devices also shortened. This was due to reflected wave signalling. Eventhough 32 device may be connected to bus, practically 10-12 devices can only be connected in a bus due to reflected wave signalling.
+ 1) The registers in the configuration space shall be used to see the memory requirement and IO resource requirement for a device.
+ 2) PCI and PCI-X speed is limited and along with the limited count of device per bus was the reason to move away from parallel to serial bus model.
+ 3) As PCI is progressing towards higher frequency for higher speeds, number of devices were reduced and distance between devices also shortened. This was due to reflected wave signalling. Eventhough 32 device may be connected to bus, practically 10-12 devices can only be connected in a bus due to reflected wave signalling.
 
 Reflected Wave signalling.
-  To Reduce the the power and cost, the PCI has used low power transmitter which transmits half the power which is required for PCI bus. When the wave reaches the termination due to infinite impedance the signal was reflected back. Due to additive nature of the signal the signal power level reached desired power level for the receiver. Normally this signal propagation delay should happen with in one clock cycle. This logic limits increase the signal progation  delay when more load is connected to bus or when length is more.
+ To Reduce the the power and cost, the PCI has used low power transmitter which transmits half the power which is required for PCI bus. When the wave reaches the termination due to infinite impedance the signal was reflected back. Due to additive nature of the signal the signal power level reached desired power level for the receiver. Normally this signal propagation delay should happen with in one clock cycle. This logic limits increase the signal progation  delay when more load is connected to bus or when length is more.
 
-  To connect more loads in a bus PCI to PCI bridge to be used. When bridge is used then that bus is isolated from other buses hence each bus can hold 10-12 devices. Each bridge creates new isolated bus. Like this pci architecture allows 256 buses and 32 devices in each bus.
+ To connect more loads in a bus PCI to PCI bridge to be used. When bridge is used then that bus is isolated from other buses hence each bus can hold 10-12 devices. Each bridge creates new isolated bus. Like this pci architecture allows 256 buses and 32 devices in each bus.
 
 For communication with PCI device, PCI architecture has the following options,
-1) Programmed IO - When SW wants to communicate with PCI device it indicates the CPU to take data from memory into register and register to PCI device and vice versa. So this method uses 2 CPU cycle for single transaction and when the data becomes larger it occpies more CPU time for this transaction alone. Currently this method is used only when SW wants to comuunicate with PCI device ie for small data transfer.
-
-2) DMA - This is most popular for data transaction. Because there is one dedicated DMA engine to handle all memory transactions. CPU only has to configure the Memory address.
-
-3) Peer to peer - This is communication between two PCI device. This is not prefered since this method requires both device should follow same format for data understanding.
+ 1) Programmed IO - When SW wants to communicate with PCI device it indicates the CPU to take data from memory into register and register to PCI device and vice versa. So this method uses 2 CPU cycle for single transaction and when the data becomes larger it occpies more CPU time for this transaction alone. Currently this method is used only when SW wants to comuunicate with PCI device ie for small data transfer.
+ 2) DMA - This is most popular for data transaction. Because there is one dedicated DMA engine to handle all memory transactions. CPU only has to configure the Memory address.
+ 3) Peer to peer - This is communication between two PCI device. This is not prefered since this method requires both device should follow same format for data understanding.
 
 PCI Arbitration :
  Like I2C, PCI also has arbitor when one or more device wants to access the bus, device has to send req signal. Arbitor will decide the device ang give grant signal. This arbitration will happen during the previous master data execution state, so no clock cycle is waster for the arbitration.
