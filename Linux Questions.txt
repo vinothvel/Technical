@@ -1,38 +1,38 @@
-What is UBOOT?
-  Uboot is first and second stage bootloader. U-Boot performs both first-stage
+1. What is UBOOT?
+   Uboot is first and second stage bootloader. U-Boot performs both first-stage
 (e.g., Initial CPU configurations, configuring memory controllers and RAM configurations and loads the uboot into DDR memory) and 
 second-stage booting (Loading of kernel). 
 e.g U-Boot runs a command-line interface on a console or a serial port. Using the CLI, users can load and boot a kernel, possibly changing parameters from the default.       U-Boot requires its boot commands to explicitly specify the physical memory addresses as destinations for copying data (kernel, ramdisk, device tree, etc.) and for jumping to the kernel and as arguments for the kernel. 
     It manages several internal and external devices such as NAND and NOR Flash memories, Ethernet and USB.
     It supports FTP (IP Stack), FAT, UBIFS(File system).
 
-What is devicetree?
-  A device tree is simply a tree structure of nodes and properties. Properties are key-value pairs and may contain bothproperties and child nodes
-  Device tree is a data structure for describing hardware layout. During the Linux boot process, a "Device Tree Blob" (DTB) file is loaded into memory by U-Boot / UEFI, and a pointer to it is passed to the kernel. This DTB file describes the system's hardware layout to the Linux kernel, allowing for platform-specific code to be moved out of the kernel sources and replaced with generic code that can parse the DTB and configure the system as required.Device Tree Source (DTS) files are simple text files that can be compiled into a binary Device Tree Blob (DTB) format using the Device Tree Compiler (DTC) tool.
-  Decompiling a DTB using DTC is lossless, i.e. one can decompile a DTB into a DTS and then compile that DTS back into a DTB without losing any information.
+2. What is devicetree?
+   A device tree is simply a tree structure of nodes and properties. Properties are key-value pairs and may contain bothproperties and child nodes
+   Device tree is a data structure for describing hardware layout. During the Linux boot process, a "Device Tree Blob" (DTB) file is loaded into memory by U-Boot / UEFI, and a pointer to it is passed to the kernel. This DTB file describes the system's hardware layout to the Linux kernel, allowing for platform-specific code to be moved out of the kernel sources and replaced with generic code that can parse the DTB and configure the system as required.Device Tree Source (DTS) files are simple text files that can be compiled into a binary Device Tree Blob (DTB) format using the Device Tree Compiler (DTC) tool.
+   Decompiling a DTB using DTC is lossless, i.e. one can decompile a DTB into a DTS and then compile that DTS back into a DTB without losing any information.
   eg : memory mapping and interrupt pin controls.
 
 
-what is initial ramdisk?
-initrd (initial ramdisk) is a scheme for loading a temporary root file system into memory, which may be used as part of the Linux startup process. initrd and initramfs refer to two different methods of achieving this. Both are commonly used to make preparations before the real root file system can be mounted.
+3. What is initial ramdisk?
+   initrd (initial ramdisk) is a scheme for loading a temporary root file system into memory, which may be used as part of the Linux startup process. initrd and initramfs refer to two different methods of achieving this. Both are commonly used to make preparations before the real root file system can be mounted.
 
-Boot process of Linux?
-1) BIOS
-On power on BIOS will run and configure the system interfaces such as RAM and performs POST. Once POST is completed it starts looking for primary/first level boot loader called MBR(Master Boot Record). Once MBR is loded then control is given to MBR.
+4. Boot process of Linux?
+   1). BIOS 
+   On power on BIOS will run and configure the system interfaces such as RAM and performs POST. Once POST is completed it starts looking for primary/first level boot loader called MBR(Master Boot Record). Once MBR is loded then control is given to MBR.
 
-2) MBR (Master Boot Record)
-Master boot record contains bootloader info, partition table and MBR validation bytes.
+  2) MBR (Master Boot Record)
+  Master boot record contains bootloader info, partition table and MBR validation bytes.
 MBR is 512 bytes. MBR then loads the GRUB bootloder and transfer the control.
 
-3) GRUP (Grand Unified BootLoader)
-This is second level bootloader. It shows splash screen if mutiple os is installed in a system. Once Os is selected it loads the kerner and initial ramdisk and transfer the control to kernel. 
+  3) GRUP (Grand Unified BootLoader)
+  This is second level bootloader. It shows splash screen if mutiple os is installed in a system. Once Os is selected it loads the kerner and initial ramdisk and transfer the control to kernel. 
 
-4) Kernel
-Mounts the root file system and runs /sbin/init program. This program has process ID 1.
+  4) Kernel
+  Mounts the root file system and runs /sbin/init program. This program has process ID 1.
 Kernel uses the initial ram disk as temporary root file system until the real ramdisk or root filesystem is mounted.
 
-5) Init
-Once the kernel loads the init program, kernel executes the list of deamon process based on the default run level using /etc/inittab. There are 6 levels are available,
+  5) Init
+  Once the kernel loads the init program, kernel executes the list of deamon process based on the default run level using /etc/inittab. There are 6 levels are available,
 0 - shutdown
 1 - single user
 2 - multi user, without NFS
@@ -41,9 +41,19 @@ Once the kernel loads the init program, kernel executes the list of deamon proce
 5 - X11
 6 - reboot
 
-For each run level there is a directory in /etc/rc.d/rc0.d/.. In these directory there will be programs starts with S for running at startup and K for running at shutdown.
-Each program has number in which sequence it should be started and killed.
-
+  For each run level there is a directory in /etc/rc.d/rc0.d/.. In these directory there will be programs starts with S for running at startup and K for running at shutdown. Each program has number in which sequence it should be started and killed.
  
-what is kernel module?
-process behind
+5. What is kernel module?
+   Kernel module is l
+
+6. What happens when we do insmod?
+   -> Insmod function will call init_module function with file len and parameters to initmate the user is trying to load kernel modules.
+   -> Once the kernel takes control then kernel calls sys_init_module function which does the following,
+      * Check the user has permission to load the module
+      * using copy_from-user call kernel copies the data from user space to kernel space along with the user arguments.
+      * It checks the validity of the copied ELF file.
+      * Symbol Resolution is done.
+      * Then the module reference is added the module list(LinkedList)
+   -> Then module init function of the driver is called.   
+      
+   
