@@ -7,4 +7,13 @@ e.g U-Boot runs a command-line interface on a console or a serial port. Using th
     It supports FTP (IP Stack), FAT, UBIFS(File system).
 
 What is devicetree?
-  Device tree is a data structure for describing hardware layout. Using Device tree, a vendor might be able to use an unmodified mainline U-Boot on otherwise special purpose hardware
+  A device tree is simply a tree structure of nodes and properties. Properties are key-value pairs and may contain bothproperties and child nodes
+  Device tree is a data structure for describing hardware layout. During the Linux boot process, a "Device Tree Blob" (DTB) file is loaded into memory by U-Boot / UEFI, and a pointer to it is passed to the kernel. This DTB file describes the system's hardware layout to the Linux kernel, allowing for platform-specific code to be moved out of the kernel sources and replaced with generic code that can parse the DTB and configure the system as required.Device Tree Source (DTS) files are simple text files that can be compiled into a binary Device Tree Blob (DTB) format using the Device Tree Compiler (DTC) tool.
+  Decompiling a DTB using DTC is lossless, i.e. one can decompile a DTB into a DTS and then compile that DTS back into a DTB without losing any information.
+  eg : memory mapping and interrupt pin controls.
+
+
+what is ramdisk?
+Boot process of Linux?
+what is kernel module?
+process behind
