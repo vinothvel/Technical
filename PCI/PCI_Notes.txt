@@ -18,3 +18,16 @@ PCI Arbitration :
  
 PCI Error Handling :
  PCI data transactions are using even parity. When data trasnfer has odd parity, PCI will set PAR signal to make it even parity. In PCI there is address and data transaction phase. Where address will find the target device. Parity error in data phase is no proble, just simple retry logic would solve the proble. Where as parity error in address can not be identified as a result it would reach the false target device and system error will happen. Since this PERR and SERR was connected to NMI (Non maskable Interrupts) it would halt the system in PCI.
+
+PCI Address Space :
+ PCI has 3 address space. 
+ 1. Memory Space - Can support 32or64bit memory addressing.
+ 2. IO address Space - Can support 32bit memory addressing only. Since 0x86 processor uses 16bit for IO space max size of IO space is limited to 64Kb.
+ 3. Configuration Spcae - 256 Bytes. First 64 bytes contains header remainings byte are memory.
+
+Memory and IO space is directly accecssbile by CPU, where as Configuration space is indirec access only in PCI. In IO address space there were two spaces reserved for configuration space address and data. For accessing the configuration space CPU first write address in the address space and Perform IO read or Write in data phase. This address is 32 bit long. This address will have the bus no, device no, function no and sub memory address. 
+
+PCI configuration space details :
+ PCI configuration space (256bytes) contains Header (64bytes) for device identification and 192bytes for optional functionality by the device. There are two types of header 1. Type 0 - Indicates end device, 2. Type 1 - Indicates PCI bridge. This device type is available as class code in header (dword 3, byte 2).
+In enumuration process this type identification is the first one.
+
