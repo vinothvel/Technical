@@ -1,6 +1,7 @@
 What is UBOOT?
-  Uboot is first and second stage bootloader. U-Boot performs both first-stage (e.g., configuring memory controllers and SDRAM) and second-stage 
-booting (Loading os OS). U-Boot runs a command-line interface on a console or a serial port. Using the CLI, users can load and boot a kernel, possibly
+  Uboot is first and second stage bootloader. U-Boot performs both first-stage (e.g., Initial CPU configurations, configuring memory controllers and RAM configurations and loads the uboot into DDR memory) and second-stage booting (Loading os OS). U-Boot runs a command-line interface on a console or a serial port. Using the CLI, users can load and boot a kernel, possibly
 changing parameters from the default. U-Boot requires its boot commands to explicitly specify the physical memory addresses as destinations for copying
 data (kernel, ramdisk, device tree, etc.) and for jumping to the kernel and as arguments for the kernel.
 
+What is devicetree?
+  Device tree is a data structure for describing hardware layout. Using Device tree, a vendor might be able to use an unmodified mainline U-Boot on otherwise special purpose hardware
