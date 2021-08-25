@@ -15,6 +15,35 @@ What is devicetree?
 
 what is initial ramdisk?
 initrd (initial ramdisk) is a scheme for loading a temporary root file system into memory, which may be used as part of the Linux startup process. initrd and initramfs refer to two different methods of achieving this. Both are commonly used to make preparations before the real root file system can be mounted.
+
 Boot process of Linux?
+1) BIOS
+On power on BIOS will run and configure the system interfaces such as RAM and performs POST. Once POST is completed it starts looking for primary/first level boot loader called MBR(Master Boot Record). Once MBR is loded then control is given to MBR.
+
+2) MBR (Master Boot Record)
+Master boot record contains bootloader info, partition table and MBR validation bytes.
+MBR is 512 bytes. MBR then loads the GRUB bootloder and transfer the control.
+
+3) GRUP (Grand Unified BootLoader)
+This is second level bootloader. It shows splash screen if mutiple os is installed in a system. Once Os is selected it loads the kerner and initial ramdisk and transfer the control to kernel. 
+
+4) Kernel
+Mounts the root file system and runs /sbin/init program. This program has process ID 1.
+Kernel uses the initial ram disk as temporary root file system until the real ramdisk or root filesystem is mounted.
+
+5) Init
+Once the kernel loads the init program, kernel executes the list of deamon process based on the default run level using /etc/inittab. There are 6 levels are available,
+0 - shutdown
+1 - single user
+2 - multi user, without NFS
+3 - Full Multi user
+4 - unused
+5 - X11
+6 - reboot
+
+For each run level there is a directory in /etc/rc.d/rc0.d/.. In these directory there will be programs starts with S for running at startup and K for running at shutdown.
+Each program has number in which sequence it should be started and killed.
+
+ 
 what is kernel module?
 process behind
