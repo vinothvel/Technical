@@ -81,4 +81,7 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
 11. What is IOCTL?
     -> Device drivers supports standard file operations such as open, read, write... etc. But when there is need for customised operation there are two ways, One is using sysfs file entry and other one is IOCTL. IOCTL is a function (Input and Output Contorl) which accepts the command code and arguments as parameter from user space.
     -> Compact_IOCTL is used for allowing 32bit user space programs to access 64bit drivers.
-    -> 
+     
+12. What is user space and kernel space?
+13. How system call works?
+14. What is symbol resolution?
