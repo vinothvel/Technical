@@ -77,3 +77,8 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
    In kernel process when spin lock is used pre emption is disabled hence no other process can pre empt this process. This is suited only for multi core CPU. In Single core CPU spin lock only does the busy wait, pre emption will not be disabled.
    
 10. Mutex?   
+
+11. What is IOCTL?
+    -> Device drivers supports standard file operations such as open, read, write... etc. But when there is need for customised operation there are two ways, One is using sysfs file entry and other one is IOCTL. IOCTL is a function (Input and Output Contorl) which accepts the command code and arguments as parameter from user space.
+    -> Compact_IOCTL is used for allowing 32bit user space programs to access 64bit drivers.
+    -> 
