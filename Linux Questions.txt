@@ -83,5 +83,6 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> Compact_IOCTL is used for allowing 32bit user space programs to access 64bit drivers.
      
 12. What is user space and kernel space?
+    -> User space is 
 13. How system call works?
 14. What is symbol resolution?
