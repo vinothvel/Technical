@@ -83,6 +83,11 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> Compact_IOCTL is used for allowing 32bit user space programs to access 64bit drivers.
      
 12. What is user space and kernel space?
-    -> User space is 
+    -> To protect the memory access each process memory is split into two. User memory is accessble only for user mode programs and kernel memory is accesbile only for kernel mode. Using system calls (0x86) Trap instruction user mode is switched to kernel mode. User mode has certain restriction such as it can not modify page table of an process this enusures one process can not modify or access another process memory.
+    
 13. How system call works?
+
+
 14. What is symbol resolution?
+    Symbol Resolution is executable file when loaded into memory will make reference to an entity/functions which are not defined internally. Eg.
+    We may be using library call and this function call may link to the library on symbol resolution stage. 
