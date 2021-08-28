@@ -109,6 +109,13 @@ How to use register as pointer?
 Can we store Register variable address in pointer? 
  -> When we declare a varible as register it assigns the variable into the CPU register which is non memory mapped.
  -> Since CPU registers doesnt have the address, we can not have the address the register variable and store in a pointer.
+ 
+Global variable storge in register?
+  -> The compiler enables you to use the register storage class specifier to store global variables in general-purpose registers. These variables are called global named register variables.
+   Syntax : register int *foo __asm("r12") 
+   -> here it is apparently tells the compiler that it should use register r12 to store the variable foo.
+   -> But global variables can not initalized 
+   -> Do not use type qualifiers such as const and volatile, as the outcome may be contrary to expectations. In particular, using the volatile qualifier does not fully prevent the compiler from optimizing accesses to the register. 
 
 Register limit? what happens if it exceeds?
  -> When CPU register are fully utilized, then it converts the variables into auto or stack memory. 
