@@ -91,3 +91,19 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
 14. What is symbol resolution?
     Symbol Resolution is executable file when loaded into memory will make reference to an entity/functions which are not defined internally. Eg.
     We may be using library call and this function call may link to the library on symbol resolution stage. 
+
+
+In built driver from where it is starting and loading?
+how to pass data to driver without ioctl or file operations? eg (Sysfs and dev)
+kernel source code structures?
+how to use register as pointer?
+can we store variable address in Register pointer?
+Register limit? what happens if it exceeds?
+how to search file in folder using cmd?
+string search cmd?
+dmesg command?
+recursion?
+booting sequence?
+platform drivers will load in uboot or kernel?
+what thigs will load in uboot and kernel?
+platform drivers?
