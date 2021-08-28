@@ -122,3 +122,5 @@ booting sequence?
 platform drivers will load in uboot or kernel?
 what thigs will load in uboot and kernel?
 platform drivers?
+Stack overflow?
+Fork?
