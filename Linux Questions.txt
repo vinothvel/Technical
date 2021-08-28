@@ -121,8 +121,13 @@ Register limit? what happens if it exceeds?
  -> When CPU register are fully utilized, then it converts the variables into auto or stack memory. 
  -> There is no limit on how many register variables can be used in a program.
  
-how to search file in folder using cmd?
+How to search file in folder using cmd?
+ -> syntax : find /path option filename
+ -> ex: find /home -type f -name "*.conf"
+ 
 string search cmd?
+ -> grep -rnw '/path/to/somewhere/' -e 'pattern' - Returns the file containing the string.
+ 
 dmesg command?
 recursion?
 booting sequence?
