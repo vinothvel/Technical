@@ -128,6 +128,9 @@ How to search file in folder using cmd?
 string search cmd?
  -> grep -rnw '/path/to/somewhere/' -e 'pattern' - Returns the file containing the string.
  
+ IOCTL max data size?
+  -> IOCTL command is encoded such as LSB 16 bit is command code, successive 14bit is size of the data structure and MSB 2 bit is defines access mode. Hence the size is represented by 14 bit max size is limited to (2^14-1) --> (16k-1)
+ 
 dmesg command?
 recursion?
 booting sequence?
