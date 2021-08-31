@@ -1,15 +1,15 @@
-To Mark the entry and exit of the driver module following macros are used,
+1. To Mark the entry and exit of the driver module following macros are used,
 -> module_init(hello_world_init);
 -> module_exit(hello_world_exit);
 
-To pass the argument as argument and to get the data from sysfs entry following macros are used,
+2. To pass the argument as argument and to get the data from sysfs entry following macros are used,
 -> module_param(variable_name, datatype, permission); -> This variable should be declared as global variable.
 ->  Here datatype can be charp to accept the string from user space and the memory is allocated to the pointer based on the size of the string.
 -> module_param_array(variable name, datatype, int pointer to the count, permission);
 
 These macros will create a sysfs entry. (/sys/module/Module_name/parameters/variablename)
 
-When parameter is changed in sysfs to get a notification whenever the value got to change. we need to register our handler function to its file operation structure.
+3. When parameter is changed in sysfs to get a notification whenever the value got to change. we need to register our handler function to its file operation structure.
 
 int notify_param(const char *val, const struct kernel_param *kp)
 {
@@ -29,6 +29,30 @@ const struct kernel_param_ops my_param_ops =
 };
 
 
-How application will communicate with hardware?
+4. How application will communicate with hardware?
  Application -> Device Node/Device File -> Major and Minor Number -> Device Driver -> Hardware
+ 
+5. Major and Minor number creation:
+   -> Create a identification for the driver using major and minor number. Major number is used to identify the driver suitable for the device. Many devices uses the same major number. So we need to assign minor number for each device which is using the driver.
+   -> There are two ways available to create 1. static 2. dynamic
+   -> For static method
+        dev_t = MKDEV(major, minornumber);
+        register_chrdev_region(dev_t, count, "device name"); will create entry in /proc/devices and sysfs/devices
+   -> dev_t is 32 bit structure where 12 bit for major and 20 bit for minor number.
+   ->For dynamic method
+        int alloc_chrdev_region(&dev_t, firstminor/*0*/, count, "device name");
+   -> Dynamic should be the prefered one.
+  
+ 6. Device node/file creation?
+    -> This is the file used to access the driver which access the device inturn.
+    -> There are two ways to create device file. 
+        1. creating manually using mknod
+            mknod -m permission /dev/test c or b Major Minornumber
+            c - character device
+            b - block device
+        2. Creating automatically using struct class
+                struct class * = create_class(Owner /*THIS MODULE*/, "class name"); --> Will create entry in sys/class
+                struct device * = device_create(Class *, Parent device *, Dev_t, Device name)
+                
+    
 
