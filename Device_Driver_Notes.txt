@@ -33,7 +33,8 @@ const struct kernel_param_ops my_param_ops =
  Application -> Device Node/Device File -> Major and Minor Number -> Device Driver -> Hardware
  
 5. Major and Minor number creation:
-   -> Create a identification for the driver using major and minor number. Major number is used to identify the driver suitable for the device. Many devices uses the same major number. So we need to assign minor number for each device which is using the driver.
+   -> Create a identification for the driver using major and minor number. Major number is used to identify the driver suitable for the device file.
+   -> Same driver can be used for multiple devices and for each devices driver may include additional functionality. Minor number is used by driver only to diffrerentiate the devices accessing the driver
    -> There are two ways available to create 1. static 2. dynamic
    -> For static method
         dev_t = MKDEV(major, minornumber);
