@@ -1,0 +1,34 @@
+To Mark the entry and exit of the driver module following macros are used,
+-> module_init(hello_world_init);
+-> module_exit(hello_world_exit);
+
+To pass the argument as argument and to get the data from sysfs entry following macros are used,
+-> module_param(variable_name, datatype, permission); -> This variable should be declared as global variable.
+->  Here datatype can be charp to accept the string from user space and the memory is allocated to the pointer based on the size of the string.
+-> module_param_array(variable name, datatype, int pointer to the count, permission);
+
+These macros will create a sysfs entry. (/sys/module/Module_name/parameters/variablename)
+
+When parameter is changed in sysfs to get a notification whenever the value got to change. we need to register our handler function to its file operation structure.
+
+int notify_param(const char *val, const struct kernel_param *kp)
+{
+        int res = param_set_int(val, kp); // Use helper for write variable
+        if(res==0) {
+                printk(KERN_INFO "Call back function called...\n");
+                printk(KERN_INFO "New value of cb_valueETX = %d\n", cb_valueETX);
+                return 0;
+        }
+        return -1;
+}
+
+const struct kernel_param_ops my_param_ops = 
+{
+        .set = &notify_param, // Use our setter ...
+        .get = &param_get_int, // .. and standard getter
+};
+
+
+How application will communicate with hardware?
+ Application -> Device Node/Device File -> Major and Minor Number -> Device Driver -> Hardware
+
