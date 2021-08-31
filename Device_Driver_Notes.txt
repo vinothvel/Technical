@@ -54,6 +54,8 @@ const struct kernel_param_ops my_param_ops =
         2. Creating automatically using struct class
                 struct class * = create_class(Owner /*THIS MODULE*/, "class name"); --> Will create entry in sys/class
                 struct device * = device_create(Class *, Parent device *, Dev_t, Device name)
-                
+
+7. After creating the device file we need to add the file operations for the device file such as open, read, write etc...
+   -> Cdev_init
     
 
