@@ -56,6 +56,7 @@ const struct kernel_param_ops my_param_ops =
                 struct device * = device_create(Class *, Parent device *, Dev_t, Device name)
 
 7. After creating the device file we need to add the file operations for the device file such as open, read, write etc...
-   -> Cdev_init
+   -> cdev_init(dev_t *, struct file_operations *);
+   -> cdev_add(cdev_t *, dev_t, count);
     
 
