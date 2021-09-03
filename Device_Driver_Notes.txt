@@ -59,4 +59,11 @@ const struct kernel_param_ops my_param_ops =
    -> cdev_init(dev_t *, struct file_operations *);
    -> cdev_add(cdev_t *, dev_t, count);
     
-
+8. Linux Kernel Module data sharing?
+   -> https://www.kernel.org/doc/html/latest/core-api/symbol-namespaces.html
+   -> https://onebitbug.me/2011/03/04/introducing-linux-kernel-symbols/
+   -> https://embetronicx.com/tutorials/linux/device-drivers/export_symbol-in-linux-device-driver/
+   
+   Translation unit??
+   How the RO data protection happens at kernel module?
+   
