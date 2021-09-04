@@ -135,16 +135,17 @@ Usage:
       
 15) How two variables with same name is differentiated?
     Variables names are appended with function name or line no to diffrentiate the variables internally by the compiler. This can be seen using objdump.
-    Normally the compiler uses concept called symbol table and Activation record. Symbol Table stores the information about the compiled program and
-    activation record is the technique to handle 
+    
 
 16) When we include header file more than once? what happens?
     -> Normally all headers should be coded with conditional header such as #ifdef. In this case header file will be included only once.
     -> If conditional macros are not avaiable then compiler might throw error for redefinition.
 
 17) Behind Main function?
-
-    
+    -> Actual entry of an program is _start function which does the following activity,
+      1. Sets up a stack and copies the argc, argv and calls the _libc_start_main
+    -> _libc_start_main registers constructor and destrcutor for a program called init and _fini respectively
+    -> calls the main function.
     
 
 what is pci BAR?
