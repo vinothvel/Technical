@@ -136,7 +136,14 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     
 19. What is wild and dangling pointer?
     Pointer which is not initialized is called wild pointer.
-    After freed up the memory, if pointer is accessed called dangling pointer
+    After freed up the memory, if pointer is accessed called dangling pointer.
+ 
+20. How to use GDB?
+    -> GNU Debugger. Needs to compile the program with -g flag.
+    -> run backtrace command will give where segmentation fault occured.
+    -> With Coredump file also we can debug the code. eg. run a.out core
+    -> by default core dump size will be 0. change the core dump limit by :: ulimit -c unlimited
+    
 
 
 In built driver from where it is starting and loading?
