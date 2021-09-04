@@ -134,7 +134,9 @@ Usage:
       iv) Linker - (ELF or executable file)
       
 15) How two variables with same name is differentiated?
-    Variables names are appended with function name or line no to diffrentiate the variables internally by the compiler.
+    Variables names are appended with function name or line no to diffrentiate the variables internally by the compiler. This can be seen using objdump.
+    Normally the compiler uses concept called symbol table and Activation record. Symbol Table stores the information about the compiled program and
+    activation record is the technique to handle 
 
 16) When we include header file more than once? what happens?
     -> Normally all headers should be coded with conditional header such as #ifdef. In this case header file will be included only once.
