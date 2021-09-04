@@ -125,7 +125,16 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
       1. Trap instructions - Eg. 0x80 - Mostly an user defined interrupts / software interrupts
       2. Fault - eg. segmentation fault (divided by zero)
       3. Abort - eg memory corruption or hardware error.
+      
+18. What is segmentation fault?
+    Segmentation fault is an error caused by accessing the invalid or read only memory which it should not be accessed.
+    Segmentation should not be handled by sigsegv signal. Because after handler executes it again retries from the instruction which causes the segmentaion.
+    So instead handling, using backtrace details of the fault instrction details should be logged for debugging purpose.
+    Eg. *p = NULL; *p =1; char *a = "test". *a = "son";
     
+19. What is wild and dangling pointer?
+    Pointer which is not initialized is called wild pointer.
+    After freed up the memory, if pointer is accessed called dangling pointer
 
 
 In built driver from where it is starting and loading?
