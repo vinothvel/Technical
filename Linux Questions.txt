@@ -16,7 +16,7 @@ e.g U-Boot runs a command-line interface on a console or a serial port. Using th
 3. What is initial ramdisk?
    initrd (initial ramdisk) is a scheme for loading a temporary root file system into memory, which may be used as part of the Linux startup process. initrd and initramfs refer to two different methods of achieving this. Both are commonly used to make preparations before the real root file system can be mounted.
 
-4. Boot process of Linux?
+4. Boot process of x86 System?
    1). BIOS 
    On power on BIOS will run and configure the system interfaces such as RAM and performs POST. Once POST is completed it starts looking for primary/first level boot loader called MBR(Master Boot Record). Once MBR is loded then control is given to MBR.
 
@@ -94,6 +94,19 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
 14. What is symbol resolution?
     Symbol Resolution is executable file when loaded into memory will make reference to an entity/functions which are not defined internally. Eg.
     We may be using library call and this function call may link to the library on symbol resolution stage. 
+
+15. Boot process of Embedded system?
+    -> When the system power on, it goes to reset vector table and it starts executing internal bootloader which is present in the ROM with the help of internal RAM.
+    -> RAM bootloader job is to find the first stage boot loader which is called Memory Loader(MLO) from the devices. The device selection can be done using HW pins. 
+    -> This MLO is loaded into internal ROM and does the RAM and other memory configurations. After this it will load UBOOT in the external RAM.
+    -> Second stage of UBOOT will loads the kernel, filesystem and Device tree. The location of these files will be available as environment variable in NOR flash.
+    -> Once the kernel is loaded, with the required boot arguments it passes control to the kernel.
+    -> kernel loads the OS and device tree to support customized HW. 
+    -> It mounts the root file system with the help of initial ram disk.
+    -> Once RootFS mounted it starts executing /sbin/init program which then loads the user process for the configured run level in /etc/inittab.
+    
+    
+    
 
 
 In built driver from where it is starting and loading?
