@@ -124,7 +124,7 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> Where as exceptions are synchronous signal and caused by faulty instructions. Exceptions are further divived into three parts.
       1. Trap instructions - Eg. 0x80 - Mostly an user defined interrupts / software interrupts
       2. Fault - eg. segmentation fault (divided by zero)
-      3. Abort - eg invalid memory access.
+      3. Abort - eg memory corruption or hardware error.
     
 
 
