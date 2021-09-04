@@ -64,6 +64,9 @@ const struct kernel_param_ops my_param_ops =
    -> https://onebitbug.me/2011/03/04/introducing-linux-kernel-symbols/
    -> https://embetronicx.com/tutorials/linux/device-drivers/export_symbol-in-linux-device-driver/
    
-   Translation unit??
+9. IOCTL max data size?
+  -> IOCTL command is encoded such as LSB 16 bit is command code, successive 14bit is size of the data structure and MSB 2 bit is defines access mode. Hence the size is represented by 14 bit max size is limited to (2^14-1) --> (16k-1)
+  
+  
    How the RO data protection happens at kernel module?
    
