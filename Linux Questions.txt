@@ -144,7 +144,9 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> With Coredump file also we can debug the code. eg. run a.out core
     -> by default core dump size will be 0. change the core dump limit by :: ulimit -c unlimited
     
-
+21. What is Paging?
+    -> Paging is memory management technique used for contiguous memory allocation. In this scheme main memory or physical memory is splited in fixed size called frame and virtual memory is splitted in same size called page.
+    -> Each process has page table which contains the number of page offsets to repressent where the data is stored in.
 
 In built driver from where it is starting and loading?
 how to pass data to driver without ioctl or file operations? eg (Sysfs and dev)
@@ -184,11 +186,5 @@ string search cmd?
  IOCTL max data size?
   -> IOCTL command is encoded such as LSB 16 bit is command code, successive 14bit is size of the data structure and MSB 2 bit is defines access mode. Hence the size is represented by 14 bit max size is limited to (2^14-1) --> (16k-1)
  
-dmesg command?
 recursion?
-booting sequence?
-platform drivers will load in uboot or kernel?
-what thigs will load in uboot and kernel?
-platform drivers?
-Stack overflow?
-Fork?
+
