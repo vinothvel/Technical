@@ -148,11 +148,7 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> Paging is memory management technique used for contiguous memory allocation. In this scheme main memory or physical memory is splited in fixed size called frame and virtual memory is splitted in same size called page.
     -> Each process has page table which contains the number of page offsets to repressent where the data is stored in.
 
-In built driver from where it is starting and loading?
-how to pass data to driver without ioctl or file operations? eg (Sysfs and dev)
-kernel source code structures?
-
-How to use register as pointer?
+22. How to use register as pointer?
  Every microprocessor or controller has two set of memory regions for the registers. 1. Memory mapped and non memory mapped register. 
  -> Non memory mapped registers does not have any memory address to access and it can be access by using the register name in assembly language or using inline assembly instruction in c program. eg. Program counter register, stack pointer register. 
  -> Where as memory mapped registers are mapped to the particular section of the main memory hence it can be accessed using normal pointer.
@@ -161,30 +157,29 @@ How to use register as pointer?
   2. *(volatile unsinged int*)0x8000000 = (any value);
  -> In both cases volatile should be used to avoid optimization.
  
-Can we store Register variable address in pointer? 
+23. Can we store Register variable address in pointer? 
  -> When we declare a varible as register it assigns the variable into the CPU register which is non memory mapped.
  -> Since CPU registers doesnt have the address, we can not have the address the register variable and store in a pointer.
  
-Global variable storge in register?
+24. Global variable storge in register?
   -> The compiler enables you to use the register storage class specifier to store global variables in general-purpose registers. These variables are called global named register variables.
    Syntax : register int *foo __asm("r12") 
    -> here it is apparently tells the compiler that it should use register r12 to store the variable foo.
    -> But global variables can not initalized 
    -> Do not use type qualifiers such as const and volatile, as the outcome may be contrary to expectations. In particular, using the volatile qualifier does not fully prevent the compiler from optimizing accesses to the register. 
 
-Register limit? what happens if it exceeds?
+25. Register limit? what happens if it exceeds?
  -> When CPU register are fully utilized, then it converts the variables into auto or stack memory. 
  -> There is no limit on how many register variables can be used in a program.
  
-How to search file in folder using cmd?
+26. How to search file in folder using cmd?
  -> syntax : find /path option filename
  -> ex: find /home -type f -name "*.conf"
  
-string search cmd?
+27. string search cmd?
  -> grep -rnw '/path/to/somewhere/' -e 'pattern' - Returns the file containing the string.
  
- IOCTL max data size?
-  -> IOCTL command is encoded such as LSB 16 bit is command code, successive 14bit is size of the data structure and MSB 2 bit is defines access mode. Hence the size is represented by 14 bit max size is limited to (2^14-1) --> (16k-1)
  
+How process memory is isolated
 recursion?
 
