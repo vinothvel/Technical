@@ -123,6 +123,26 @@ Usage:
      Macros can give alias name for literals, constants and type also. Interpretation is done in preprocessing time.
      Macros does not have any scope rule.
      
+14) C Compilation Steps:
+      i) Preprocessing - (*.i) Expansion of macros, Conditional compilation, Comments removal and Include file expansion
+         -> Output of the preprocessing is expanded code called translation unit.
+         -> Translation unit defines the scope of the file. Eg. static global variable is limited to this translation unit called internal linkage. And this static 
+         variable name may not be visible to the linker.
+         -> where as global variable may be visible to the linker.
+      ii) Compilation - (*.s file) - Object code
+      iii) Assmbly Code - Assemble language (*.o)
+      iv) Linker - (ELF or executable file)
+      
+15) How two variables with same name is differentiated?
+    Variables names are appended with function name or line no to diffrentiate the variables internally by the compiler.
+
+16) When we include header file more than once? what happens?
+    -> Normally all headers should be coded with conditional header such as #ifdef. In this case header file will be included only once.
+    -> If conditional macros are not avaiable then compiler might throw error for redefinition.
+
+17) Behind Main function?
+
+    
     
 
 what is pci BAR?
