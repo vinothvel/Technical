@@ -119,7 +119,12 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
       3. when process swithces from the user space to kernel space vice versa.
    -> when context switching happens, it store the current state, memory data and moves it to the ready or wait queue.
     
- 17.   
+ 17. What is the difference between exception and interrupt?
+    -> Interrupts are asynchronous signal and mostly it is expected from external devices.
+    -> Where as exceptions are synchronous signal and caused by faulty instructions. Exceptions are further divived into three parts.
+      1. Trap instructions - Eg. 0x80 - Mostly an user defined interrupts / software interrupts
+      2. Fault - eg. segmentation fault (divided by zero)
+      3. Abort - eg invalid memory access.
     
 
 
