@@ -109,7 +109,17 @@ Kernel uses the initial ram disk as temporary root file system until the real ra
     -> It mounts the root file system with the help of initial ram disk.
     -> Once RootFS mounted it starts executing /sbin/init program which then loads the user process for the configured run level in /etc/inittab.
     
+16. What is context switching?
+   -> Each process has Process control block to know the status of an process.
+   -> Process control block has process ID, files opened, permissions, CPU registers, state and priority....
+   -> So context switching means, switching the state of an process.
+   -> context process can happen for the following reason,
+      1. Multi tasking
+      2. Interrupt,
+      3. when process swithces from the user space to kernel space vice versa.
+   -> when context switching happens, it store the current state, memory data and moves it to the ready or wait queue.
     
+ 17.   
     
 
 
