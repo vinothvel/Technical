@@ -22,14 +22,20 @@
 2) Convert decimal to octal?
    while(decNum != 0)
    {
-     Octal = (decNum % 8) * i;
+     Octal += (decNum % 8) * i;
      i *= 10;
      decNum /= 8;
    }
 
-    
+3) Convert decimal to binary?
+   while(decNum != 0)
+   {
+      binary += (decNum % 2) * i;
+      i *= 10;
+      decNum /= 2;
+   }
   
-1) How to reverse single linked list?
+4) How to reverse single linked list?
    while(head != NULL)
         {
             next = head->next;
@@ -40,4 +46,13 @@
         
         head = prev;
 
-2) 
+5) How to find the middle node of the linked list?
+   SlowNode = head;
+   FastNode = head;
+   
+   while((FastNode- != NULL) && (FastNode->next != NULL))
+   {
+      SlowNode = SlowNode->next;
+      FastNode = FastNode->next->next;
+   }
+   
