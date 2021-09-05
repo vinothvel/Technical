@@ -82,4 +82,21 @@
       iLen++;
    }
 
+7) Find Nth node from end of the list?
+   NthNode = head;
    
+  while(head != NULL)
+  {
+     if(count < N)
+     {
+        count++;
+     }
+     else
+     {
+        NthNode = NthNode->next;
+     }
+     head = head->next;
+  }
+
+8) 
+
