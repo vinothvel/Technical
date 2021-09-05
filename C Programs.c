@@ -98,5 +98,10 @@
      head = head->next;
   }
 
-8) 
+8) Convert string to integer?
+   while(a[i] != NULL)
+   {
+      num += ((a[i] - 48) * Place);
+      place *= 10;
+   }
 
