@@ -147,6 +147,8 @@ Usage:
     -> _libc_start_main registers constructor and destrcutor for a program called init and _fini respectively
     -> calls the main function.
     
+https://www.2braces.com/c-questions/pointer-questions-c-8    
+    
 
 what is pci BAR?
 PCI enumuration?
