@@ -56,3 +56,30 @@
       FastNode = FastNode->next->next;
    }
    
+6) Detect Loop in linked list?
+   
+   SlowNode = head;
+   FastNode = head;
+   
+   while((FastNode- != NULL) && (FastNode->next != NULL))
+   {
+      SlowNode = SlowNode->next;
+      FastNode = FastNode->next->next;
+      
+      if(slowNode == FastNode)
+      {
+         /*Cycle Detected*/
+         break;
+      }
+   }
+   
+   FastNode = head;
+   iLen = 1;
+   while(slowNode != FastNode)
+   {
+      SlowNode = SlowNode->next;
+      FastNode = FastNode->next;
+      iLen++;
+   }
+
+   
