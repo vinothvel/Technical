@@ -156,7 +156,11 @@ Design logic for producer 1GHz and consumer 650MHz no data should be lost and no
 what is uboot
 what is device tree and can we convert dtb into dts.
 
-How do you debug if stack memory corruption happens. depth in debugging other than debugger and print. Mostly on how stack is corrupted.
+1) How do you debug if stack memory corruption happens. depth in debugging other than debugger and print. Mostly on how stack is corrupted.
+https://microchipsupport.force.com/s/article/Steps-to-view-modify-the-default-Stack-Size-in-Atmel-Studio
+https://www.reddit.com/r/embedded/comments/mz512j/how_to_detect_stack_corruption_in_embedded_c/
+https://www.keil.com/support/man/docs/armclang_ref/armclang_ref_cjh1548250046139.htm
+
 Start address of the stack pointer and how much allocated stack size for the given function.
 Before main what things are done in microcontroller?
 stack pointer assignment in microntroller booting?
