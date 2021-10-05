@@ -1,0 +1,16 @@
+1) Measure 4L water using 5, 3, 8L Jug?
+  Ans 1 : (unlimited water supply)
+    fill 5L and pour in 3L.
+    Pour 3L into 8L jug, remaining 2L in 5L jug to 3L jug.
+    Get one more 5L water in 5L jug and pour 1L water in 3L jug and reaminig will be 4L in 5L Jug.
+  Ans 2: (Limited water supply of 8L only)
+    Pour fill 5L in 5L jug from 8L jug.
+    Pour water from 5L to 3L jug.
+    Pour 3L into 8L jug, remaining 2L in 5L jug to 3L jug.
+    Get one more 5L water in 5L jug and pour 1L water in 3L jug and reaminig will be 4L in 5L Jug.
+    
+2) We have 8 Balls among that one ball has different weight. How to find that ball in 2 step. Weighing machine is provided?
+    -> Step 1: take 2 balls out seperately.
+    -> In machine weigh the 6 balls as 3 balls in one side and other three balls in one side.
+    -> If both side weight is same, then find the 2 balls weight which is kept seperately in begginng.
+    -> 
