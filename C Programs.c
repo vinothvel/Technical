@@ -105,3 +105,87 @@
       place *= 10;
    }
 
+9) Implement circular queue using array?
+   
+   void enqueue()
+   {
+      if((front == -1) && (rear == 1))
+      {
+         front = 0;
+         rear = 0;
+         arr[rear] = data;
+      }
+      else if(((rear + 1) % MAX) == front)
+      {
+         Queue full;
+      }
+      else
+      {
+         rear = ((rear + 1) % MAX);
+         arr[rear] = data;         
+      }
+   }
+
+   void dequeue()
+   {
+      if((front == -1) && (rear == -1))
+      {
+         queue empty;
+      }
+      else
+      {
+         read = arr[front];
+         
+         if(front == rear)
+         {
+            front = -1;
+            rear = -1;
+         }
+         else
+         {
+            front = ((front+1) % MAX);
+         }
+      }
+   }
+
+10) Implement circular queue using linked list?
+   
+   void enqueue()
+   {
+      if(q->front == NULL)
+      {
+         q->front = temp;
+      }
+      else
+      {
+         q->rear->link = temp;       
+      }
+   
+      q->rear = temp;
+      q->rear->link = q->front;
+   }
+
+   void dequeue()
+   {
+      if(q->front == NULL)
+      {
+            return queue is empty
+      }
+      else
+      {
+           read q->front->data;
+            if(q->front == q->rear)
+            {
+               q->front = NULL;
+               q->rear = NULL;
+            }
+            else
+            {
+               q->front = q->front->link;
+               q->rear->link = q->front;
+            }
+         
+           if()
+      }
+   }
+   
