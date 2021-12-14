@@ -111,5 +111,15 @@ int CountHigh_Bits(int x)
   return  ((x & (0xAAAAAAAA)) >> 1) | ((x & 0x55555555) << 1)
  }
  
+ 8) Multiplication, Division and Modules Operation using bitwise?
+    Using bitwise it can be done ony where the divisor or multiplier is power of 2.
+    --> 20 * 8 = 20 << 3. where (2^3 = 8)
+    --> 20 / 6 = 20 >> Can not be done as the divisor is not in the form of power of 2.
+    --> 20 / 8 = 20 >> 3.
+    --> 5 % 2  = 5 & 1; i.e (2 --> 2^1 should be replaced with (2^1)-1 -- 2^0)
+    --> 80 % 8 = 80 & 7.
+    
+ 9) Check the number is divsible or not?
+    --> 8 / 4 ==> 8 & 3. same as above. Modulo operation should return 0 if it i divisible.
  
    
