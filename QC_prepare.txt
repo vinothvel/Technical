@@ -1,5 +1,5 @@
 Stage 1 : C Questions
-Stage 2 : Bitwise Hacks
+Stage 2 : Bitwise Hacks, C programs such as string convertion, sizeof, 
 Stage 3 : Data Structure Programming (Refer Karumachi book)
 Stage 4 : Linux Questions such process, IPC mechanism (user space)
 Stage 5 : Linux Kernel space questions
