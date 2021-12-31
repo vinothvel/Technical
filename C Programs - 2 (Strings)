@@ -1,0 +1,45 @@
+int FindMaxOccuringCharacterInString()
+{
+    int arr[256] = {0};
+    char* a = "Step Up";
+    int i = 0;
+    char MaxChar = 0;
+    int MaxCharCount = 0;
+    
+    while(a[i] != '\0')
+    {
+        arr[a[i]]++;
+        if(MaxCharCount < arr[a[i]])
+        {
+            MaxCharCount = arr[a[i]];
+            MaxChar = a[i];
+        }
+        
+        i++;
+    }
+    
+    printf("Max Char : %c, Count : %d\r\n", MaxChar, MaxCharCount);
+}
+
+int RemoveDuplicateCharInString()
+{
+    int arr[256] = {0};
+    char* a = "Step Up fo purchase pune pen parking";
+    char DuplicateString[256] = {0};
+    int s = 0;
+    int i = 0;
+
+    while(a[i] != '\0')
+    {
+        if(arr[a[i]] == 0)
+        {
+            DuplicateString[s] = a[i];
+            s++;
+        }
+        
+        arr[a[i]]++;
+        i++;
+    }
+    
+    printf("OP Char : %s\r\n", DuplicateString);
+}
