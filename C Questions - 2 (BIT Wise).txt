@@ -1,0 +1,17 @@
+Bit wise Hacks :
+	To set nth bit --> X | (1 << n)
+	To clear nth bit --> X & ~(1 << n)
+	To toggle nth bit --> X ^ (1 << n)
+	For multiply (2^n) --> X << n;
+	To divide (2^n) --> X >> n;  
+	To compare two numbers --> if((X ^ Y) == 0)
+	To check number is odd --> (X & 0x1)
+	To check two integer is having same sign --> ((x ^ y) >= 0) same sign
+	To change the sign of the number --> (~x + 1) i.e two's complement
+	Check whether the number is power of 2 --> (x > 0) && ((x & (x - 1))) == 0.
+	Check Power of 4 --> (n && !(n & (n - 1)) && !(n & 0xAAAAAAAA))
+	Check Power of 8 --> (n && !(n & (n - 1)) && !(n & 0xB6DB6DB6))
+	Check Power of 16 --> (n && !(n & (n - 1)) && !(n & 0xEEEEEEEE))
+	Find the modulus of an number --> (x & (n-1)) where n is 2, 4, 8, 16. Return Reminder. If 0 then it is divisible by n.
+	To increment by 1 --> -(~x)
+	To decrement by 1 --> ~(-x)
