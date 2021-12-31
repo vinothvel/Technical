@@ -1,6 +1,11 @@
 1) Find size of variable in generic form
   #define sizeof( var) ((char *)(&var + 1) - (char *)(&var))
   
+  Find size of struct?
+  struct test *a = NULL;
+  printf("size of : %d\r\n", a++); // will print the struct size.
+  
+  
 2) Inline Function vs Macro
   Macro is expanded in the preprocessor time. It is just text substituion and also macros are not type checked where as inline function does.
   eg : #define MAX(a,b) ((a)>(b) ? (a) : (b))
@@ -31,6 +36,8 @@ int (*fun_ptr)(char) = &fun; // Initialization
 OR
 int (*fun_ptr)(char) = fun; // Initialization
 fun_ptr(10); // Function calling
+
+int (*fun)() -> function pointer () - > is important. Because without () it looks like int * return type.
 
 Usage:
 1) Function pointers can be useful when you want to create callback mechanism, and need to pass address of a function to another function.
@@ -102,6 +109,13 @@ Usage:
 10) const volatile int *p can be used?
     Yes. Volatile indicates the program to fetch data always from memory nor from registers. Const indicates we can not change its value. 
     So incase of Hardware register which is supposed to be filled by other module can be given as const volatile in our program.
+    
+    How const qualifier acheives the non editable value?
+    Const qualifier stores the variable data in .ro or text segment. But when we try to change using the pointer, 
+    compiler gives the warning and discards the const qualifier.
+    
+    eg : char* str = "data";  /*Constant char will be stored in .ro section of c memory segment*/  
+          strcpy(str, "copy"); /*Since this is trying to access ro memory, will give segment fault.*/
 
 11) Macro for endian swap?
     #define Swap_endian(data)   \
@@ -116,6 +130,8 @@ Usage:
     Hence all structures are aligned to its address boundaries. This is called structure padding. 
     Packing explicitley intiamates the compiler to avoid / do packing for the desired value. #pragma pack.
     Note : Normally structure would padd the values to the size of an variable with max size of the datatype available in that structure.
+    
+    structure padding is done to avoid performance penalty when accessing data from memory. It is padded to the highest datatype size available in the structure. 
     
 13) Typedef vs Macro?
      Typedef is limited to giving alias name for the data type only. Interpretation is performed in compilation time.
@@ -135,18 +151,62 @@ Usage:
       
 15) How two variables with same name is differentiated?
     Variables names are appended with function name or line no to diffrentiate the variables internally by the compiler. This can be seen using objdump.
-    
 
 16) When we include header file more than once? what happens?
     -> Normally all headers should be coded with conditional header such as #ifdef. In this case header file will be included only once.
     -> If conditional macros are not avaiable then compiler might throw error for redefinition.
 
 17) Behind Main function?
-    -> Actual entry of an program is _start function which does the following activity,
-      1. Sets up a stack and copies the argc, argv and calls the _libc_start_main
-    -> _libc_start_main registers constructor and destrcutor for a program called init and _fini respectively
-    -> calls the main function.
+    -> When we look at the ELF file e_entry address main is not the entry function. it is _start.
+    -> Compiler generaly designed to encode this assembly instruction to our code.
+    -> Job of the _start function is to setup the stack for the main function with parameters, 
+    prepare the memory layout for storing the global variables and calls the main.
+  
+  We can override this feature. ie. function can be defined without main function.
+		int nomain();
     
+		void _start() {
+    nomain();
+		}
+
+		int nomain(){
+		    printf("My func");
+		}
+
+	-> compile this function with -nostartfilesin gcc.
+ 
+18) Difference Between Type Casting and Type Conversion?
+    Type casting is done when converting the larger datatype to smaller one. It is done at the time of coding.
+    Type conversion is done by compiler at the time of compilation. This is done when smaller datatype is converted to larger one.
+    
+19) Pointer Arithemetic ?
+    Pointer arithmetic *p++ --> due to operator precedence both *, ++ is equal and associativity is right to left. Hence --> *(p++);
+
+20) Const pointers?
+    int *const ptr; --> constant pointer. 
+   const int *ptr; or int const *ptr; --> pointer to a constant;
+   const int *const ptr; --> constant pointer to const;
+   
+21) Double pointer memory allocation?
+    int **a;
+	
+	a = (int **)malloc(sizeof(int *) * 4);
+	
+	for(4)
+	 a[0] = (int *)malloc(sizeof(int) * 2);
+
+	Now the double pointer can be accessed like --> a[i][j]. 
+  --> Double Pointer and one malloc call.
+   	
+   	/*Allocates memory of r double pointer and c*r int memory*/
+   	a = (int **)malloc( (sizeof(int *) * r) + (sizeof(int) * c * r) )	
+	  ptr = (int *)(a + r);
+	
+	  for(i = 0;i < r)
+		  a[i] = ((ptr + c) * i);
+      \
+22) Processor stack frame;
+
 https://www.2braces.com/c-questions/pointer-questions-c-8    
     
 
